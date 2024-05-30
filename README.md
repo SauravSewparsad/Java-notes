@@ -265,3 +265,116 @@ Break Statement
 - Inside the loop, the current letter is stored in a variable called 'currentLetter'.
 - If 'currentLetter' is an uppercase or lowercase 'A', 'letterFound' is set to true.
 - Once 'A' is found, the loop stops, and the 'break' statement is used to break out of the loop.
+
+# Methods in Java
+
+Creating methods
+- In Java, methods are tools within a class that help tackle big problems by breaking them into smaller, more manageable parts.
+- They perform specific jobs and can save time by avoiding repetition in the code. A method is made up of a header, which is the opening line of the method, and a return type, which specifies the type of answer it will return.
+- Parentheses are used to store information the method needs, and a signature is used to distinguish them.
+- The body, enclosed in curly braces, is the actual code executed when the method is called.
+- If the method is not a "void" type, it must have a "return" statement at the end, sending the answer back out. "Return" is a special word in Java, and this is how a method works.
+
+Calling methods
+- A method's action is not determined by its order, but rather by the order it is called in.
+- For instance, a greetUser method can be placed after the main method or upfront.
+- The greetUser method, which asks the user's name, stores it in the name variable, and then provides a friendly greeting.
+- However, if the program is launched without calling the main method, it would simply sit idle.
+- To activate the greetUser method, call its name from the main method or any other method within or outside the class. This will trigger the greetUser method when the class is launched.
+
+Variable Scope
+- A method is a function that runs within a class, and its order doesn't matter.
+- Variables are limited edition stickers that only work where they are born.
+- They can be declared in curly braces or outside of methods, with the scope being narrower. For example, a variable called "myVariable" can only be used within an "if" block.
+- Local variables are defined within methods, like those inside loops or decision structures, while global variables are defined outside of methods and have a wider reach, extending to the entire class.
+- Accessing global variables from anywhere in the class, including within its methods, is possible. When using a global variable and a local variable with the same name, the one with the narrower scope takes precedence when referenced.
+- In local scope, the compiler assumes the local variable is the default variable, but if you need to access the global variable, you can use the "this" keyword. This tells the compiler that you want the version associated with this class.
+- When deciding whether to declare a variable globally or locally, consider where in your program you will need it.
+- If it's only necessary within a limited scope, go with a local variable. If you need to reference the variable across multiple methods, a global scope is the way to go.
+
+Passing Data to Methods
+- To determine if a user qualifies for a loan based on their salary and credit score, a new method called "isUserQualified" is created outside the main method.
+- The "isUserQualified" method requires the user's salary and credit score variables, which are stored in the main method.
+- To make them accessible, they are listed as parameters in the parameter list. Inside "isUserQualified", two additional variables are introduced: one for the required salary and another for the required credit score.
+- An "if" statement is added to check if the user meets these conditions and print an approval message if approved, and a friendly "Sorry, you have been declined" if not.
+- To call the method, the variable names for salary and credit score are the same in both the main method and "isUserQualified".
+- However, changing the variable names to "actualSalary" and "actualCreditScore" in the main method does not cause errors, as the order of arguments must match the parameter list's order.
+
+Returning Data from Methods
+- Methods in programming are used to perform tasks and sometimes return results.
+- For example, the isUserQualified method is a one-way street that returns true if it checks if something is true, and false otherwise.
+- When a method returns a yes or no, it is stored in a variable called "qualified".
+- The "notifyUser" method is picky and requires a boolean response.
+- It determines the message to send based on the response.
+- The "qualified" box is created from the main method, which returns the answer from isUserQualified.
+- If the response is false, the "notifyUser" message is declined.
+
+Overloading Methods
+- Overloading is the practice of having multiple methods with the same name but different characteristics in a class.
+- In a "month" class, there are two "getMonth" methods, one accepting an integer representing the month and the other taking a string as the month's name.
+- Overloading allows the compiler to determine which method to use when calling it by passing an argument matching the method's parameter list.
+- However, creating overloaded methods with the same parameter list can result in a compilation error.
+- Overloading methods offer similar methods with slight variations, allowing for a more efficient handling of different scenarios without a messy, conditional logic.
+
+# Objects in Java
+
+Defining Classes for Objects
+- In programming, objects are containers that hold data and actions, similar to building a blueprint for a rectangle.
+- Rectangles have characteristics like length and width, which are called "fields".
+- These fields are declared as "double length" and "double width".
+- The class is not meant to perform tasks itself, but to create rectangle objects.
+- To set these values, "getter" and "setter" methods are used.
+- Encapsulation is a golden rule in object-oriented programming (OOP)Agile, which states that a class's data should be kept private while its methods can be shared with other classes.
+- Encapsulation is achieved by adding a "private" label on the length and width fields and a "public" label on the methods that define the behavior.
+- A "protected" access modifier is also used, allowing only classes in the same package to access it.
+- In summary, objects are like the blueprint for a rectangle, with fields and methods being shared between classes.
+
+Java Constructors
+- Constructors are essential for setting initial values or configuring an object's state.
+- The default constructor is the first type encountered, as it does not take any parameters.
+- In Java, default constructors are always present, acting as methods without a return type.
+- They start with a keyword like 'public' and do not have a return type.
+- The constructor's name matches the class name, like'rectangle'.
+- The constructor does not have any parameters, and curly braces for the body.
+- The goal of this default constructor is to give default values to the class's fields, like setting the length and width to zero.
+- Multiple constructors can be created, each with the same name but accepting different parameters.
+- For example, 'public Rectangle' can be used with 'double length' and 'double width' as parameters.
+- The setter methods can then be used to set the fields, providing options for setting up a rectangle's state.
+
+Object Instantiation
+- In this Rectangle class scenario, we create two objects to calculate the area of a few rooms in a house.
+- To create a new object, we create an instance of the class based on the Rectangle class and specify its data type.
+- We name the object "room1" and create an instance using the keyword "new" followed by the class's constructor.
+- The dot operator allows us to tap into an object's superpowers.
+- We set the width of "room1" using "setWidth" and "setLength" and calculate the area using "room1.calculateArea".
+- Next, we create another room object using the constructor that takes the length and width as arguments.
+- We call "Rectangle room2 = new Rectangle" and pass in 30 and 75 values, which IntelliJ assigns to "length" and "width".
+- This class is used to model physical rooms, serving as the blueprint for all kinds of rectangles.
+- In this case, we use it to represent rooms in a house, which is a type of rectangle. In essence, a class is a blueprint that can be used to create specific objects tailored to your needs.
+
+Method Parameters as Objects
+- Objects can be used as method arguments in programming, similar to primitive data types.
+- For example, two Rectangle objects representing rooms like kitchen and bathroom can be used as method arguments.
+- A method named calculateTotalArea is created, taking two Rectangle objects as input.
+- The dot operator is used to call calculateArea methods, and the sum is returned.
+- The main method then calls calculateTotalArea with the kitchen and bathroom as arguments, and prints the total area with the area value.
+
+Method Return Types
+- To create a method that provides the length and width of a rectangle, we can use a getRoom method instead of creating a new Rectangle directly.
+- This method asks for the dimensions and returns an object with them. The return type should be the type of object we want to create, which is a rectangle.
+- Once we have the length and width, we can create a rectangle object using the information and send it back using the return_new Rectangle method.
+
+Wrapper Classes
+- Wrapper classes transform primitive data types into objects, such as number1 (int) and number2 (integer).
+- They offer numerous methods compared to primitive data types, including MIN_VALUE and MAX_VALUE, compare and compareTo methods, conversion tricks like doubleValue and floatValue, and the parseInt method.
+- The Integer wrapper class is a treasure chest for handling integers, with methods like MIN_VALUE and MAX_VALUE, compare and compareTo, doubleValue and floatValue, and the parseInt method.
+- The valueOf method can be used to convert a plain integer variable into an Integer object. Similar tricks are found in other wrapper classes.
+
+Records
+- A record is a Java class designed for simple objects with fields and methods that handle those fields.
+- It is similar to a class but is tailored for objects with fields and methods.
+- Record creation is easy, just like classes. For example, creating an "account" model with fields in parentheses and curly braces is a record.
+- Records are set in stone and untouchable once confirmed.
+- Accessor methods are the same name as the field, not "get".
+- Records are useful for wrangling simple objects, which can be accessed later in the code.
+- They are often called POJOs, or Plain Old Java Objects, and simplify the code for basic objects.
