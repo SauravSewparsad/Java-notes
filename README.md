@@ -378,3 +378,140 @@ Records
 - Accessor methods are the same name as the field, not "get".
 - Records are useful for wrangling simple objects, which can be accessed later in the code.
 - They are often called POJOs, or Plain Old Java Objects, and simplify the code for basic objects.
+-----------------------------
+
+# Week 2 Java Fundamentals
+------------------------
+
+# inheritance
+Inheritance involves a new class taking on the content of another class, forming an extension. The parent class, also known as the superclass, shares its data with the child class, allowing them to recycle and build upon it.
+
+- Constructors in Inheritance
+   + When dealing with constructors and inheritance, it's important to be explicit when calling constructors from the superclass.
+   + For instance, if you want a different constructor from the superclass to run first, you must create a new constructor in 'person' that takes a name as a parameter.
+   + In 'employee,' you can call any of 'person's' constructors using'super'.
+   + If you want another constructor, you can pass the necessary arguments.
+   + If the superclass does not have a default constructor, the subclass must explicitly call one of its other constructors.
+   + If you remove the'super' call from 'employee' and the default constructor from 'person,' you will see an error.
+   + To fix it, you must call one of the other constructors that still exist.
+   + In summary, a superclass constructor runs first, explicit calls to superclass constructors use'super', and if there is no default in the superclass, you must call one of the others.
+
+- Overriding and Overloading Inherited Methods
+   + A subclass inherits methods from its superclass, but sometimes it wants to change how a method works.
+   + This is known as "overriding a method." In this case, the "square" class inherits methods from the "rectangle" class, but the way the square calculates the perimeter is different from the regular rectangle.
+   + To fix this, the "square" class creates a new method in "square" that looks exactly like the one in "rectangle" and tweaks the inside to fit the square's formula for calculating perimeter, which is sides times length.
+   + Overloading methods is another technique where multiple methods with the same name are in one place but take different types of inputs.
+   + When working with a subclass, you can tweak a method that you got from a superclass, even if that method is in a different class.
+   + For example, in the rectangle class, we add a new method called "print" that simply says, "I am a rectangle."
+   + In the square class, we give "print" the same name but take a string as a parameter, and we have two choices when calling "print" on the square class: the one we inherited and the new tweaked version.
+
+- Chain of Inheritance
+   + In Java, a class can inherit from one superclass and another class, creating a chain of inheritance where a subclass inherits from its ancestor classes.
+   + For example, a Vehicle class inherits from a Vehicle, adds a doors field, and sets the doors to 2.
+   + To test this chain of inheritance, create an instance of Coupe, "myCar," and set its color to red.
+   + Despite the lack of a "setColor" method in Coupe and Car, myCar can be given a color.
+   + To print the car's color and doors, use "myCar.getColor()" and "myCar.getDoors()".
+   + This hierarchy of inheritance allows classes to inherit from a chain of other classes, despite Java not supporting multiple inheritance.
+
+Limiting Access in Inheritance
+- When a subclass inherits from a superclass, it inherits only public and protected methods and fields, while private methods and fields remain exclusive to the superclass.
+- For example, the Square class can use the fields'side' and 'length' from the Rectangle class, as they are marked as 'protected' in terms of access.
+- However, if'sides' is marked as 'private', it would not be inherited and cannot be used outside of the Rectangle class.
+- Overriding methods, such as the 'calculatePerimeter' method from the Rectangle class, can be made less strict by changing the method to 'protected' in the superclass.
+- Access modifiers act as bouncers in the class world, deciding who gets in and out of the code.
+- Superclasses use these modifiers to control what can be shared with their subclasses.
+
+Sealed Classes
+- Java classes can be considered "sealed classes" if they only allow certain inheritance rules.
+- For example, if we have shapes like circle, rectangle, and square, we can only allow rectangle and circle to inherit from the main shape class.
+- To do this, we add a "sealed" label to the class and add a "permits" section to list the classes allowed to inherit from this sealed class.
+- Sealed classes follow the same rules as their parent, while non-sealed classes are open for extension.
+- Final classes are off-limits for inheritance.
+- In the context of shapes, rectangles can be sealed to only allow square to be its buddy, while circles can be non-sealed.
+
+
+# Polymorphism 
+- Polymorphism With Objects
+   + Polymorphism is a concept in Object-Oriented Programming that allows for shape-shifting between classes.
+   + It involves a superclass being the big boss, and a subclass being the cool kid who can perform tasks similar to the superclass.
+   + For example, a dog inherits from an animal, allowing it to bark, fetch, and perform other doggy behaviors.
+   + Polymorphism allows for unique sounds in animals, dogs, and cats.
+   + For example, Rocky, a regular dog, can make a loud "woof" when he is a dog, while Sasha, an animal but also a dog, can make a doggy "woof" when she is a cat.
+   + This morphing allows Sasha to sound like a dog or a cat depending on her mood, showcasing the power of polymorphism in Java.
+   + Overriding a superclass type allows for the application of subclass elements, allowing for the morphing of Sasha to sound like a dog or a cat depending on her mood.
+
+Object Type Casting
+- Type casting is a method used to transform an object's type, either explicitly or implicitly.
+- It involves creating an object that is technically of the superclass but wears the hat of a subclass, known as an implicit upcast.
+- This upcast only knows about the methods of the class it was casted up to, meaning it cannot perform dog-specific tricks.
+- To unleash these special tricks, it must be explicitly downcast back to a Dog.
+- For example, a cat named Sasha can be transformed into a Cat by adding the 'Cat' class in parentheses and wrapping the whole thing in parentheses.
+- This allows Sasha to scratch using the dot operator, triggering the scratch method from the Cat class.
+- However, it is important not to get too trigger-happy with casting, as the compiler may allow casting to any object without issue.
+- Type casting should only be used when absolutely necessary and double-checked to avoid mishaps.
+
+Instanceof Operator
+- Java's "instanceof" operator is used to check if an object belongs to a specific class.
+- For example, if we have an "animal" superclass with "dog" and "cat" subclasses, we can check if Sasha is an "animal" by checking if she is a dog.
+- If it is true, it means Sasha is an animal, and if it is false, it means she is a cat.
+- The "feed" method in Java allows us to feed any animal or subclass of animal using "polymorphism".
+- This method can be used to determine the actual subclass of an object, such as dogs or cats.
+- For example, if Sasha is a dog, we can feed it dog food, and if it is a cat, we can feed it cat food.
+- Instanceof is a useful tool for checking and transforming an object, similar to pattern matching in Java.
+
+# Abstraction
+- Abstract Classes and Methods
+  + Abstraction in object-oriented programming refers to having an idea that is not yet ready for conceptualization.
+  + In Java, an abstract class is added to classes and methods, serving as a blueprint for specific shapes.
+  + These abstract classes are vague and cannot be directly used, but guide more specific shapes.
+  + Abstract methods are even more abstract, with no instructions inside, leaving it up to subclasses to fill in the details.
+  + When defining an abstract method, the word "abstract" is used, followed by the return type and method name.
+  + Abstraction in Java sets rules and expectations for related concepts in code.
+
+Inheriting From Abstract Classes
+- An abstract class is a blueprint for other classes, like a rectangle class that extends the abstract class Shape.
+- When it extends Shape, the rectangle class inherits the "calculate area" abstract method, which is similar to passing the baton of responsibility.
+- The class must decide whether to implement this method or declare it as abstract, as it carries unimplemented abstract methods from Shape.
+- If the rectangle only wants to tackle 5 of the 20 abstract methods, it can declare the class as abstract and push the remaining 15 to any class that extends the rectangle.
+- To implement the inherited abstract method, right-click, select "generate", and choose "implement methods".
+
+Creating Objects With Abstract Types
+- Abstract classes are templates that cannot be directly used, like "shape".
+- They cannot be converted into objects, but can be used as types if an instance of their non-abstract subclasses is created.
+- For example, "rectangle" can be converted into a shape by multiplying its length and width.
+- Abstract classes are for inheritance purposes only, and revisiting them is part of the learning process.
+- It's important to stick with abstract concepts and avoid creating instances.
+
+# Interfaces
+- Creating an Interface
+   + An interface is a blueprint for an abstract idea, similar to an abstract class.
+   + It lacks state, constructors, and cannot change the values of its fields.
+   + Classes implement interfaces rather than extending them. To create an interface for products, create a Java class with 'interface' as the type and name.
+   + Fields in an interface must be constant and public, and cannot be accessed by implementing classes.
+   + This allows for the creation of methods without bodies, similar to abstract classes.
+   + For example, to create getter and setter methods for 'name', declare the return type and method name, and include any necessary parameters.
+   + Interfaces are useful in Java for abstraction, polymorphism, and multiple inheritance.
+ 
+Implementing Interfaces
+- In Java, dealing with interfaces is like signing a contract.
+- A "Book" class must implement the "Product" interface, which does not use "extends" to connect with others.
+- To comply, the Book class must either have all the required methods or label it as abstract.
+- If not, Java may demand the implementation or declare the class as abstract.
+- To comply, right-click on the class and tell Java to generate and implement the methods, adding data like a "private String name."
+- The Book class can also be customized with unique features like author names, page numbers, and ISBNs.
+- However, if the class implements multiple interfaces, it must follow all their rules.
+- If methods have the same name but different return types, Java will reject the class, as it cannot ignore such clashes.
+
+Instantiating Objects With Interface Types
+- The text describes a problem with creating a "book" interface in the book class, which is not possible due to the error message.
+- A workaround is to use any class that implements the product interface, such as "book".
+- To name the book, use the "setName" method from the book class and name it "In the Kitchen with H+ Sport."
+
+Default and Static Methods
+- Interfaces in programming can house default and static methods, which are different from abstract methods.
+- For example, a "Product" interface can have methods to set and get the product name, but these methods need to be public and abstract by default.
+- To avoid breaking non-abstract classes that use the Product interface, default methods can be made "default" by marking them with the word "default" and giving them a body.
+- However, these methods become available to all classes that use the interface.
+- Static methods are similar to default methods but cannot be overridden by implementing classes.
+- They can only be accessed through the interface itself. Any class that uses an interface must implement its methods or declare itself abstract.
+- By default, interface methods are public and abstract.
