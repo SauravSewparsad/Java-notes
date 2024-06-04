@@ -515,3 +515,111 @@ Default and Static Methods
 - Static methods are similar to default methods but cannot be overridden by implementing classes.
 - They can only be accessed through the interface itself. Any class that uses an interface must implement its methods or declare itself abstract.
 - By default, interface methods are public and abstract.
+
+# Data Structures
+- Collections Framework
+   + A collection is a container for organizing data, with elements holding references to other things.
+   + Java offers a collections framework, a toolbox for handling these groups or collections.
+   + The "Collection" interface is the main interface, followed by Set, List, Queue, and Map.
+   + Java also provides a "collections" class with useful items like binarySearch, copy, frequency, reverse, shuffle, and sort.
+   + These tools help handle data in Java, providing a comprehensive approach to data management.
+
+Sets
+- A set in programming is a group of unique items that do not care about order, like a club without duplicates.
+- It can be created directly or like a blueprint, with different types including hash sets, linked hash sets, and tree sets. Sets are not just for strings, but can be used for any object type.
+- To check if a set has a specific requirement, use the "contains" method. To remove something from a set, use the "remove" option.
+- The "of" method is an easier way to fill up a set, but it can become stubborn and cause an unsupported operation exception if used.
+- The Java documentation provides more details about sets.
+
+Lists
+- Lists are common in programming and can be categorized into array lists, link lists, stack, and vector. To create an array list, use the "add" method to add an apple, lemon, banana, and orange.
+- The order remains intact, and items can be accessed by their position using the "get" method.
+- To swap items, use the "set" method, and lists are happy with duplicates.
+- To find specific items, use "index of" to find the first occurrence and "last index of" for the last.
+- To remove items, use the "remove" option, but be cautious with doubles.
+- An unchangeable list can be created using "list.of". For example, adding a cherry, cranberry, and plum all at once.
+
+Queues
+- A queue is a system where items are added and removed in a line, following the "first in, first out" rule.
+- It can be used in various types, such as linked lists or priority queues.
+- Queues can be modified to place the same item multiple times.
+- The "first in, first out" rule ensures that the first item to be removed is the first to be removed.
+- Queues can be saved in a variable and printed out. The peek method allows for checking the front of the line without causing it to move.
+
+Maps
+- Java's Map interface is a dictionary that pairs keys with values, such as fruit names and calorie counts.
+- There are different types of maps, such as HashMap, TreeMap, and LinkedHashMap.
+- The map presents as a jumbled-up list, but it is easy to find if you know the key.
+- To update a value, use 'putIfAbsent' instead of 'put'.
+- There is also a'replace' method for replacing items.
+- To get something from the map, use the key.
+- To clean up the map, remove the key you want to remove.
+- If you want to know if a map contains something, use 'containsKey' and 'containsValue'. 'Map.of' allows you to create a map in one go.
+- Maps can also provide sets, such as 'entrySet' for keys and values, 'keySet' for keys, and 'values' for values.
+
+Iterators
+- In Java, iterators are a common way to loop through collection elements.
+- These are provided by the collection interface and can be used to access items by index.
+- To loop through all elements, call the method on the collection and use a condition to check if there are more items to process.
+- Inside the loop, print out an element using, which gives you the next element in the collection.
+- You can customize this loop to perform any processing you need.
+- The method is available for all collections inheriting from the collection interface, but Maps do not inherit from the collection interface.
+- Instead, Maps provide the method to loop through Map elements as a set.
+
+Enhanced For Loops
+- An enhanced for loop is a useful tool in programming for looping through collections of items.
+- In this example, we have a list of strings called "fruits" and want to show each one.
+- The for loop starts with "for" followed by parentheses, and we name the current item inside parentheses.
+- Then, we add a colon and the name of our collection, "fruits". The for loop will read "for each 'fruit' in the 'fruits' collection".
+- However, an error occurs when the types do not match.
+- To fix this, we can specify the type of elements the collection can contain using angle brackets.
+- The loop then prints out each fruit from the collection. This loop works with all types of collections.
+
+forEach() and Lambdas
+- The forEach method on Map collections simplifies the process of going through collections compared to using an iterator.
+- It requires no loop setup and can be used with lambda expressions, such as "f" for example. For example, "system.out.println(f)" would be a simple way to print "f".
+- For one method, a method reference can be used to name the input and output.
+- For each element, actions can be wrapped in curly braces.
+- For Map collections with key and value, lambda expressions need two inputs, "k" for key and "v" for value.
+- The action is then performed, like "print k + ':' + v". ForEach is the modern way to go through Java collections, and practicing it with collections can make it useful.
+
+# Functional Interfaces
+- Functional Interfaces
+   +  Functional programming is a software development style that uses mathematical functions to process inputs and produce outputs.
+   +  Java, an object-oriented language, has a toolkit called java.util.function, which houses functional interfaces with a single job, which are executed using lambda expressions and method references.
+   +  For example, to print a list of countries, we can use forEach with a lambda expression that secretly corresponds to the Consumer functional interface.
+   +  This interface has a special method that takes something and returns nothing, which is executed by our lambda expression.
+   +  In addition to lambda expressions, method references are also available in java.util.function, which includes other functional interfaces like Supplier, Predicate, Function, and specialized operators like UnaryOperator and BiFunction.
+   +  These interfaces have one main method, default, and static methods.
+   +  For example, the function interface has a default method called andThen, which allows for additional operations on its result.
+   +  To create your own functional interfaces, it is recommended to annotate your interface with @FunctionalInterface to ensure only one main method.
+   +  You can also include extra static or default methods for added utility. With this knowledge, you can use Java for both object-oriented and functional programming.
+
+Streams
+- Java provides both the java.util.function and java.util.stream packages for functional programming.
+- A stream is a conveyor belt of items from a collection or array, allowing for manipulation without affecting the original source.
+- The java.util.stream package offers tools for performing these tricks, such as morphing an array of even numbers into a stream, resulting in a series of odd numbers.
+
+Exception Handling
+- An exception is a runtime hiccup caused by an error, disrupting the smooth flow of a program.
+- It can be a "array index out of bounds exception" where a loop attempts to access something from an array's index that does not exist.
+- To handle these exceptions, Java's File class has a method called "createNewFile" that creates a file with a path that does not exist.
+- If the directory where the file is supposed to be created does not exist, an "IO exception" is thrown.
+- To catch an exception, a try block is wrapped in curly braces, followed by a catch block with parentheses and parentheses specifying the type of exception to catch.
+- Java will try to create the file, but if it fails, the catch block is used to print a message, preventing the program from crashing.
+
+Stack Trace and Exception Message
+- Exceptions are messages that help understand what went wrong in code.
+- They can be obtained through methods that provide information about the exception and can be added to user displays.
+- A "stack trace" is a map showing the path the program took before hitting the exception, helping to identify the cause.
+- Printing the stack trace when catching an exception is common.
+- It shows a list of classes, methods, and line numbers that led to the exception, which can be accessed for more details.
+- The last line in the stack trace indicates the trouble started, while the next entry reveals the line causing the problem.
+- Sometimes, an entry without a line number may be missing due to a native method written in a different language.
+
+Handling Multiple Exceptions
+- Code errors can be handled using three techniques: polymorphism, using a series of catch blocks, and having one block that can catch multiple errors.
+- Polymorphism is useful when errors are related like a family, with the parent "Exception" being the parent.
+- A series of catch blocks can be used to handle multiple errors, such as "FileNotFound" and "InputMismatch".
+- However, if both errors cause the same code crash, having one catch block can simplify the process.
+- These three techniques help prevent code from going wrong by handling errors in a way that treats them differently and ensuring that the code is executed correctly.
