@@ -623,3 +623,82 @@ Handling Multiple Exceptions
 - A series of catch blocks can be used to handle multiple errors, such as "FileNotFound" and "InputMismatch".
 - However, if both errors cause the same code crash, having one catch block can simplify the process.
 - These three techniques help prevent code from going wrong by handling errors in a way that treats them differently and ensuring that the code is executed correctly.
+-----------------------------------------------------
+
+# Week 3 Intermediate Java
+------------------------
+# Streams and Lambda Expressions
+
+Functional Programming
+- Functional Programming is a popular programming paradigm that focuses on assessing mathematical functions and avoiding altering data states.
+- It allows functions to be assigned to variables, passed as arguments, and returned from other functions.
+- Functional programming offers advantages such as fostering code comprehension, simplifying debugging, enhancing modularity by composing smaller functions into more complex ones, and improving concurrency by eliminating multiple states.
+- In Java 8, features like Lambda Expressions, method references, and the stream API enable functional programming.
+- This paradigm can be implemented in Java projects to enhance code comprehension, modularity, and concurrency.
+
+Lambda Expressions
+- Functional programming is a fundamental paradigm that includes lambda expressions, which are concise, nameless functions used to implement functional interfaces.
+- These interfaces have only one abstract method and consist of a parameter list, arrow token (->), and body.
+- Lambda expressions require a functional interface with a corresponding signature for effective use.
+- Examples include Predicate in IntelliJ, which evaluates string length, and Consumer, a built-in functional interface.
+- Lambda expressions can be dynamic and assigned to variables, making code more flexible.
+- A shorthand syntax called Method Reference is used for invoking existing methods more concisely.
+- This feature is particularly powerful when combined with the Stream API to handle and process data sets effectively within the functional programming paradigm.
+
+Streams API and Handling Data Sets
+- The Stream API is a functional programming tool that simplifies working with datasets.
+- Streams are sequences of elements that can be processed sequentially or in parallel, sourced from collections, arrays, or I/O channels.
+- Common methods for creating a Stream include ".stream()" or collections, ".stream()" with arrays, and the "Stream.of" method.
+- Intermediate operations, such as filtering, transformation, and flattening, are chainable and lazy.
+- Terminal operations, like "f or each" or "col<= ct", conclude the processing.
+- This approach aligns with the functional programming style, enhancing code readability and maintainability.
+
+ # Generics and Collections
+ 
+Collection Framework
+- The Java collection framework offers various tools for managing groups of items, including interfaces and classes for collections like list, set, queue, and map.
+- These interfaces handle tasks like adding, removing, and looping through items. The list, set, and queue are closely related as they extend the collection interface.
+- The map is a loner, focusing on key-value pairs rather than single items.
+- Implementation classes provide specific functions and performance boosts for these data structures.
+- Lists include ArrayList and LinkedList, sets include HashSet and TreeSet, and maps include HashMap and TreeMap.
+- Examples include creating an ArrayList, adding and removing elements, and printing the list.
+- The type of the list is specified as strings on line eight, which helps the compiler catch any wrong additions and saves time.
+
+Generics Role
+- Generics in Java have revolutionized the way collections handle objects, allowing for easier type safety and reusability.
+- They allow collections to determine the object type a collection can hold at compile time, preventing runtime errors.
+- Generics catch type-related issues during compilation, preventing runtime hangovers.
+- They also allow generic classes and interfaces to work with various types, making code cleaner and less repetitive.
+- For example, a list of integers with numbers cannot accommodate non-numeric guests like "hello" or long strings of characters.
+- The compiler ensures that everything lines up when adding numbers, making the code safer and more efficient.
+- Generics are like the unsung heroes of Java, making code safer and more efficient.
+
+Parameterized Types
+- This section explains how to create and leverage generic classes in Java, which are useful for code and make built-in Java code easier to understand.
+- To create a generic class, type parameters are defined within angle brackets in the class declaration, acting as stand-ins for actual types when creating class instances.
+- In IntelliJ, a generic "Pair" class can hold two objects of the same type, with "T" being the parameterized type.
+- Type safety is ensured by defining actual type arguments when using the class.
+- The generic class can handle String and Integer types without casting, making it smart enough to handle both types without fuss.
+
+# Annotations and Reflection
+Introduction to Annotations
+- Annotations are small tags that can be added to Java classes, methods, or fields to add extra information or modify code behavior.
+- They are versatile and can be used for generating code, adhering to coding standards, or providing hints to tools and frameworks.
+- Java has built-in annotations, such as "@Override" to signal a method's intended override, "@Deprecated" to indicate a method's discontinuation, and "@SuppressWarnings" to suppress warnings.
+- Annotations can be added to classes, fields, parameters, and more.
+- They are essential for adding metadata and directing code's behavior at compile or runtime.
+
+Creating Custom Annotations
+- Custom annotations are a useful tool in Java frameworks like Spring, allowing developers to define attributes like priority and tags.
+- These annotations can be used on classes, methods, and fields, and can be used for data validation, logging, and auditing purposes.
+- For example, a custom annotation with "priority" and "tags" can be set on a class and a method, with the class setting values for priority and tags, and the method specifying tags.
+- By combining custom annotations with the Java Reflection API, developers can create powerful tools for data validation, logging, and auditing.
+
+Reflection API for Dynamic Code Manipulation
+- Java's reflection API provides a backstage pass to your code's metadata, including classes, methods, and fields, while it is running.
+- It allows you to explore a class's structure, methods, fields, and annotations.
+- By pairing it with annotations, you can create new instances of a class, call methods, access fields, and even change how a class, method, or field behaves while the program is running.
+- For example, to check if a class has a custom annotation called "my custom annotation," we can get data from the "info" class and save it in a special class object.
+- If it does, we print the "priority" and "tags" value. If not, we loop through all the methods in "info," checking if each method has our custom annotation.
+- The reflection API makes dynamic code manipulation a breeze, enabling applications like code generation, dependency injection, and runtime configuration.
+- It's like next-level Java, enabling cool applications like code generation, dependency injection, and runtime configuration.
