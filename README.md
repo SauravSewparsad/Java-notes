@@ -702,3 +702,102 @@ Reflection API for Dynamic Code Manipulation
 - If it does, we print the "priority" and "tags" value. If not, we loop through all the methods in "info," checking if each method has our custom annotation.
 - The reflection API makes dynamic code manipulation a breeze, enabling applications like code generation, dependency injection, and runtime configuration.
 - It's like next-level Java, enabling cool applications like code generation, dependency injection, and runtime configuration.
+
+# Multithreading and Concurrency
+
+Introduction to Concurrency and Multithreading
+- Concurrency and multithreading are crucial in programming, enhancing the efficiency and responsiveness of applications.
+- Concurrency involves juggling multiple tasks simultaneously, while multithreading allows different threads to run simultaneously within a single process.
+- This allows for more efficient use of system resources, leading to faster and more responsive applications.
+- Java supports multithreading through the "Thread" class and "java.util.concurrent" package, allowing for the creation and management of threads in Java apps.
+- For instance, a "MyRunnable" class can start threads by implementing "Runnable" and printing a message with the thread ID.
+- By understanding these concepts and using Java's built-in support, developers can significantly improve their app's performance.
+
+Concurrency Concepts
+- Java provides a range of tools and APIs to manage concurrency and multithreading.
+- The "Thread" class and the "Runnable" interface are essential for managing threads, offering methods for kickstarting, halting, and keeping them in check.
+- Java also provides synchronization and locks to ensure shared resources are accessed safely by multiple threads.
+- The "java.util.concurrent" package with the "Executor" framework simplifies the creation and management of threads, especially for handling multiple tasks concurrently.
+- In IntelliJ, you can create a fixed thread pool with a specified number of threads and execute tasks concurrently.
+- Java also offers concurrent collections, such as the "ConcurrentHashMap," designed for safe manipulation by multiple threads.
+- The "Future" and "Callable" interfaces are useful for dealing with delayed responses, such as retrieving results with an "ExecutorService" and "Future."
+- This overview should help you create apps that can handle multiple tasks simultaneously.
+
+# Design Patterns
+Singleton Design Pattern
+- The singleton design pattern is a widely used pattern that ensures a class has only one instance, creating a universal point of access.
+- It is favored by Spring Boot and is used for managing a single database connection, global logger, or centralizing application settings.
+- The benefits of the singleton pattern include controlled access, lazy instantiation, and efficient management of shared resources or states.
+- It is ideal for classes that need to maintain a single instance across an application.
+
+Singleton Pattern Implementation
+- The singleton design pattern is implemented using two common approaches: eager initialization and lazy initialization.
+- Eager initialization creates a singleton instance immediately upon class loading, making it suitable for resource-heavy or long-term applications.
+- This is done by creating a static instance and ensuring only one instance exists.
+- On the other hand, lazy initialization waits until the instance is needed before creating it, making it more efficient for resource-intensive or non-recurrent applications.
+- This is achieved through synchronization, ensuring only one thread can create the instance at a time, and a double null check to prevent simultaneous instances.
+- However, non-synchronized getInstance methods can create multiple instances in multi-threaded environments, while synchronized methods can prevent this.
+- Understanding the pros and cons of each approach helps choose the right one for each scenario.
+
+# Input and Output
+Introduction to I/O in Java
+- Streams are used for data read or written, with applications in file operations and console input.
+- They represent a one-way flow of data, with OutputStreams sending data out and InputStreams taking data in.
+- In the Java Streams API, there are two core abstract classes: InputStream and OutputStream, which have concrete implementations for handling different data types.
+- Reader and Writer are abstract classes that handle characters, Unicode, and character encoding, while InputStream and OutputStream deal with bytes.
+- Concrete implementations are used based on the data type being worked with.
+
+Reading from System
+- In this example, an app is created using the Scanner class to read user input from the console.
+- The class is created and linked to "System.in" to fetch keyboard inputs.
+- The user-friendly interface is made by using "system.out.print" to keep the input on the same line and using "scanner.nextLine()" to get the user's input.
+- The "name" variable is then printed out to display the user's name.
+- The same approach is used for the age, using "scanner.nextInt()" to get the number.
+- The code is then run to check if the user's name, age, and occupation are correct.
+- However, there is a problem with "nextLine" and "nextInt" in the code.
+- To fix this, the code can switch "nextLine" to "nextLine" for age and convert the string to an integer, or add another "nextLine" to jump past the line separator.
+- The Scanner is then used to read the user's input.
+
+Reading files
+- To read input from a file named "example.txt" in a folder named "06_03", create a BufferedReader using the following code: "BufferedReaderread ==/wBufferedReader(=/wFi<=Reader(src/main/java/06_03/example.txt));"
+
+Using try-with-resources
+- The code for reading a file with a buffered reader can be improved by adding a "finally" block after the "try-catch" sections to ensure proper resource closure.
+- However, in complex applications with multiple resource openings, this step is often overlooked.
+- A simpler solution is "try-with-resources," which declares the resource inside brackets after the "try" keyword.
+- This minor change can prevent memory leaks and make the application safer.
+- Therefore, consider using "try-with-resources" whenever creating resources inside a "try" block.
+
+# Files and Directories
+Working with Files
+- Java has file-handling capabilities, with two main packages: java.io and java.nio.
+- The "File" class, which creates files and lists directory contents, has limitations.
+- The java.nio package offers new classes like "Path," "Paths," and "Files," providing a modern API with improved error handling.
+- It is generally better to use java.nio classes for file work, as they offer better error handling.
+- The main players from java.nio are "Path" and "Paths," which represent file system paths and offer static methods for tasks like copying, moving, and deleting files.
+
+Creating a New File
+- In Java, creating an empty file is a common task in software development.
+- To do this, declare a "Path" variable and set it using the "Paths" class's "get" method.
+- Import the "Path" and "Paths" classes from the "java.nio.file" package.
+- Then, use the "Files" class to create an empty file named "example.txt" in the specified folder.
+- To avoid an "file already exists" exception, check if the file exists before attempting to create it.
+- Use the "Files.notExists" method to determine if the file exists and only create it if it is not, ensuring the file remains empty.
+
+Working with Directories
+- In Java, working with directories is easy using the "directories example" class.
+- To list the contents of a directory, use the "Files" class's static method "list".
+- This method returns a stream of path objects, with the current directory represented by "Paths.get".
+- To print each entry, use the "forEach" method.
+- However, the "list" method throws an IO exception, so a try-catch block is used to display all project contents.
+- To filter out directories, use the "filter" method before "forEach".
+- To create a new directory, use the "Files.createDirectory" method, which checks if the directory already exists using "Files.notExists".
+- This creates an empty directory without any exceptions, making listing and creating directories a breeze.
+
+Copying Files
+- This code demonstrates how to copy files in Java using a directory structure with subdirectories.
+- The "FileCopier" class is used to copy the file "example.txt" with the content "hello world".
+- The "Paths.get" method is used to set the path to the source file, and the "Files.copy" method is used to copy the file.
+- To handle potential exceptions, a try-catch block is used.
+- The code ensures correct paths are provided and checks if the file exists in the destination directory using "Files.notExists".
+------------------------------------------
